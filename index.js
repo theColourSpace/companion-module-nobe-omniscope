@@ -21,7 +21,7 @@ instance.prototype.init = function () {
 		self.status(self.STATUS_UNKNOWN);
 
 		if (self.config.host !== undefined) {
-            self.initSocket();
+                               self.initSocket();
 		}
 };
 
@@ -38,12 +38,12 @@ instance.prototype.initSocket = function () {
             })
             .on('close', () => {
 				console.log('Connection closed');
-				this.status(this.STATUS_WARNING, 'Connection closed');
+				self.status(self.STATUS_WARNING, 'Connection closed');
             })
             .on('error', (err) => {
 				console.log('Error:', err);
-				this.status(this.STATUS_ERROR, 'Connection error');
-				this.log('error', 'Nobe: ' + err);
+				self.status(self.STATUS_ERROR, 'Connection error');
+				self.log('error', 'Nobe: ' + err);
 			})      
 };
 
@@ -59,7 +59,7 @@ instance.prototype.updateConfig = function (config) {
         
 		self.config = config;
 		if(self.config.host) {
-            this.status(this.STATUS_WARNING, 'Connecting...');
+                        self.status(this.STATUS_WARNING, 'Connecting...');
 			self.initSocket();
 		}
 };
@@ -75,7 +75,7 @@ instance.prototype.config_fields = function () {
             id: 'info',
             width: 12,
             label: 'Information',
-            value: 'This module is for Nobe Omniscope'
+            value: 'This module triggers channels in Nobe Omniscope'
         },
         {
             type: 'textinput',
